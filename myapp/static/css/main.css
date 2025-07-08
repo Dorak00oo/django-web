@@ -48,13 +48,6 @@ body {
     color: #8dabe3ff;
 }
 
-@media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
 /* actualiza los contenedores */
 .container {
     max-width: 1200px;
@@ -207,3 +200,39 @@ input[type="checkbox"] {
     transform: scale(0.95);
 }
 
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 18px; /* Más grande en celular */
+  }
+
+  .container {
+    font-size: 1.25rem;  /* Aumentar tamaño de texto */
+    padding: 1.5rem;     /* Más espacio interno */
+  }
+
+  .input-largo {
+    width: 100%; /* Que ocupe todo el ancho disponible */
+    max-width: 300px; /* pero con un límite */
+  }
+
+  .centrar {
+    padding: 1rem;
+    height: auto; /* Evita que quede aplastado */
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 1rem; /* Reduce espacio entre cards */
+    padding: 1rem;
+  }
+}
