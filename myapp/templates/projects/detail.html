@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>{{project_name}}</h1>
+
+
+{% if tasks %}
+    
+<div class="card-grid">
+  {% for task in tasks %}
+  <div class="card">
+    <h2>{% if not task.done %} 🕓 {% else %} ☑ {% endif %} {{ task.title }}</h2>
+
+    {% if not task.done %}
+    <p>tarea incompleta</p>
+    {% else %}
+    <p>tarea completa</p>
+    {% endif %}
+
+    <h4>{{ task.description }}</h4>
+    <h4>project: {{ task.project.name }}</h4>
+    
+    <form action="{% url 'delete_task' task.pk %}" method="post" style="display:inline">
+      {% csrf_token %}
+      <button class="redondeado">
+        🗑️ delete
+      </button>
+    </form>
+    
+    <form action="{% url 'done_task' task.pk %}" method="post" style="display:inline">
+      {% csrf_token %}
+      <button class="redondeado">
+        {% if task.done %}↩ undo{% else %}☑ done{% endif %}
+      </button>
+    </form>
+
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<h2>No tienes tareas aún, prueba crear una!!</h2>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página de inicio</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script>
+        if (!localStorage.getItem('recargado')) {
+            localStorage.setItem('recargado', 'true');
+            location.reload();
+        } else {
+            localStorage.removeItem('recargado'); // Limpia el dato para futuras visitas
+        }
+    </script>
+</head>
+
+<body>
+    <div class="centrar">
+        <p>
+            <a href="{% url 'home_page' %}">
+                <button class="redondeado"> ⇦ Volver</button>
+            </a>
+        </p>
+        {% if messages %}
+        <ul class="quitar-lista">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h1>Ingresa tu cuenta</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <input type="text" name="username" placeholder="Usuario" class="input">
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Contraseña" class="input" id="field">
+            </p>
+            <button class="redondeado">Inicia sesión</button>
+            <p>
+                <label>
+                    <input type="checkbox" id="showpass" onclick="ShowPwd()" class="chk-redondeado">
+                    <label for="showpass">Mostrar la Contraseña</label>
+                </label>
+            </p>
+        </form>
+        <script>
+            const ShowPwd = () => {
+                let input = document.querySelector('#field')
+                if (input.type === "password") {
+                    input.type = "text"
+                } else {
+                    input.type = "password"
+                }
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

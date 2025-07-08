@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Create a new project</h1>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="resource" value="project">
+    {{ project_form.as_p }}
+    <button class="redondeado">save</button>
+</form>
+
+<hr>
+
+<h1>Create a new task</h1>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="resource" value="task">
+    {{ task_form.as_p }}
+    <button class="redondeado">save</button>
+</form>
+
+{% endblock %}

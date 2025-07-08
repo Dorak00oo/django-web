@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página de inicio</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+
+    <div class="centrar">
+        <p>
+            <a href="{% url 'home_page' %}">
+                <button class="redondeado"> ⇦ Volver</button>
+            </a>
+        </p>
+        {% if messages %}
+        <ul class="quitar-lista">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h1>Ingresa tus datos</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <p>
+                <input type="text" name="username" placeholder="Usuario" class="input" id="id_username"
+                    value="{{ form.username.value|default:'' }}">
+            </p>
+
+            <p>
+                <input type="email" name="email" placeholder="Correo" class="input" id="id_email"
+                    value="{{ form.email.value|default:'' }}">
+            </p>
+
+            <p>
+                <input type="password" name="password1" placeholder="Contraseña" class="input" id="id_password1">
+            </p>
+
+            <p>
+                <input type="password" name="password2" placeholder="Confirmar Contraseña" class="input"
+                    id="id_password2">
+            </p>
+
+            <button class="redondeado">Crear</button>
+
+            <p>
+                <input type="checkbox" id="showpass" onclick="ShowPwd()" class="chk-redondeado">
+                <label for="showpass">Mostrar la Contraseña</label>
+            </p>
+        </form>
+
+        <script>
+            function ShowPwd() {
+                const passInput1 = document.querySelector('#id_password1');
+                const passInput2 = document.querySelector('#id_password2');
+                const isChecked = document.querySelector('#showpass').checked;
+
+                if (passInput1) passInput1.type = isChecked ? "text" : "password";
+                if (passInput2) passInput2.type = isChecked ? "text" : "password";
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

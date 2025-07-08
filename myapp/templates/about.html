@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <h1>{{title}}</h1>
+
+    <p class="grande">
+        Esta página es una página de ejemplo y aquí se vería la introducción a tu página. <br>
+        Puedes usar este espacio para contar de qué trata tu sitio web, qué tipo de contenido ofreces, <br>
+        o incluso dar la bienvenida al usuario. También podrías mencionar tus objetivos o servicios principales.
+    </p>
+
+    <p class="grande">
+        Esta página web fue desarrollada como una muestra de mis habilidades en diseño y desarrollo web, y está pensada para ser publicada en Fiverr como parte de mi portafolio profesional.
+    </p>
+    
+    <p class="grande">
+    Esta página es un to-do list, te permite crear proyectos y enlazar tareas a esos proyectos, permite agregar y borrar tanto proyectos como tareas
+    </p>
+
+    <p>
+        Desarrollado por <strong>{{username}}</strong>.
+    </p>
+
+</body>
+</html>
+
+
+{% endblock %}
+

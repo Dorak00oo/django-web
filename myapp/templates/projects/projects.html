@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>projects</h1>
+
+{% if projects %}
+<div class="card-grid">
+    {% for project in projects %}
+    <div class="card">
+        <h2>{{ project.name }}</h2>
+
+        <form action="{% url 'delete_project' project.pk %}" method="post" style="display:inline">
+            {% csrf_token %}
+            <button class="redondeado">
+                🗑️ delete
+            </button>
+        </form>
+
+        <a href="{% url 'project_detail' project.id %}">
+            <button class="redondeado">
+                ✎ ver tareas
+            </button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h2>No tienes proyectos aún, prueba crear uno!!</h2>
+{% endif %}
+
+{% endblock %}
