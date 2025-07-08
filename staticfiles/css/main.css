@@ -201,38 +201,41 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
+  /* NAV */
   .navbar ul {
     flex-direction: column;
     gap: 1rem;
   }
-}
 
-@media (max-width: 768px) {
+  /* BODY */
   body {
-    font-size: 18px; /* Más grande en celular */
+    font-size: 18px !important;
   }
 
+  /* CONTAINER */
   .container {
-    font-size: 1.25rem;  /* Aumentar tamaño de texto */
-    padding: 1.5rem;     /* Más espacio interno */
+    font-size: 1.25rem !important;
+    padding: 1.5rem !important;
   }
 
+  /* INPUTS */
+  .input,
   .input-largo {
-    width: 100%; /* Que ocupe todo el ancho disponible */
-    max-width: 300px; /* pero con un límite */
+    width: 100%;
+    max-width: 300px;
   }
 
+  /* CENTRAR */
   .centrar {
     padding: 1rem;
-    height: auto; /* Evita que quede aplastado */
+    height: auto;
     min-height: 100vh;
   }
-}
 
-@media (max-width: 768px) {
+  /* GRID */
   .card-grid {
-    grid-template-columns: 1fr; /* Una sola columna */
-    gap: 1rem; /* Reduce espacio entre cards */
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 1rem;
   }
 }
