@@ -1,0 +1,192 @@
+.colors {
+--glaucous: #5c7dd2ff;
+--glaucous-2: #6587d9ff;
+--vista-blue: #8dabe3ff;
+--powder-blue: #9ebde3ff;
+--lavender-web: #c9d2eeff;
+--lavender-web-2: #e4e5fbff;
+}
+
+body {
+    background: #e4e5fbff;
+    color: #000000
+;
+}
+
+/* colores de la barra de navegacion */
+.navbar {
+    background: #5c7dd2ff;
+    padding: 10px 0;
+}
+
+/* ajustando la barra de navegacion */
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+/* quitando el decorado tipo lista */
+.navbar ul li {
+    list-style: none;
+}
+
+/* dandole color a los objetos de la barra */
+.navbar ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* color a la seleccion de la barra */
+.navbar ul li a:hover {
+    color: #8dabe3ff;
+}
+
+/* ajustando el contenido de la pagina */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.grande {
+    font-size: 18px;
+}
+
+/* estiliza los objetos en formato card */
+.card {
+    background: #9ebde3ff;
+    color: #000000;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+}
+
+/* pone los card en formato grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* redondea los botones */
+.redondeado {
+    background-color: #6587d9ff; 
+    color: #000000;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 8px #000000(0, 0, 0, 0.2);
+}
+
+.redondeado:hover {
+    background-color: #8dabe3ff;
+    transform: scale(1.05);
+}
+
+/* color del input */
+.input {
+    background: #c9d2eeff;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    border-radius: 12px;
+}
+
+.input-largo {
+    background: #c9d2eeff;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    border-radius: 12px;
+    width: 230px; 
+}
+
+.centrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.quitar-lista {
+    list-style: none;
+    padding-left: 0;
+}
+
+.quitar-lista li::marker {
+    content: "❌ ";
+    color: red;
+}
+
+.input-password-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-password-container input {
+    width: 100%;
+    padding-right: 40px; /* espacio para el botón 👁️ */
+    box-sizing: border-box;
+}
+
+.input-password-container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: checkbox;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+}
+
+/* Ocultar visualmente el checkbox sin quitarle accesibilidad */
+.chk-redondeado {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Estilo base del “botón”  */
+.chk-redondeado + label {
+    background-color: #6587d9ff;     
+    color: #000000;                  
+    padding: 8px 18px;
+    border: none;
+    border-radius: 999px;            
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20);
+    user-select: none;               
+}
+
+/* Estado ACTIVO (checkbox marcado) */
+.chk-redondeado:checked + label {
+    background-color: #8dabe3ff;      
+    transform: scale(0.97);           
+}
+
+/* Feedback al presionar (opcional) */
+.chk-redondeado + label:active {
+    transform: scale(0.95);
+}
